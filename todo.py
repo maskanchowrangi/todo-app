@@ -5,9 +5,17 @@ def add_todo(item):
     print(f"Added: {item}")
 
 def show_todos(item):
-    for i, todo in enumerate(todos, 1):
-        print(f"{i}. {todo}")
+    if not todos:
+        print("No todos yet!")
+    else:
+        print("\n Your Todos: ")
+        for i, todo in enumerate(todos, 1):
+            print(f"{i}. {todo}")
 
-add_todo("Learn Git")
-add_todo("Build projects")
-show_todos()
+
+def remove_todo(index):
+    if 0 > index <= len(todos):
+        removed = todos.pop(index-1)
+        print(f"Removed: {removed}")
+    else:
+        print("Invalid todo number!")
