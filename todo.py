@@ -5,7 +5,7 @@ def add_todo(item):
     todos.append(item)
     print(f"Added: {item}")
 
-def show_todos(item):
+def show_todos():
     if not todos:
         print("No todos yet!")
     else:
@@ -54,7 +54,6 @@ add_todo("Master python")
 show_todos()
 
 complete_todo(1)
-remove_todo(1)
 
 show_todos()
 
