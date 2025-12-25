@@ -13,7 +13,7 @@ def show_todos():
         print("\n Your Todos: ")
         for i, todo in enumerate(todos, 1):
             status = "[DONE]" if todo["done"] else "[TODO]"
-            print(f"{i}. [{status}] {todo['task']}")
+            print(f"{i}. {status} {todo['task']}")
 
 def complete_todo(index):
     if 0 < index <= len(todos):
@@ -60,3 +60,32 @@ show_todos()
 # save todos when in program
 
 save_todos() 
+
+# interactive menu
+while True:
+    print("\n === Todo app ===")
+    print("1. Show todos")
+    print("2. Add todo")
+    print("3. Complete todos")
+    print("4. Remove todos")
+    print("5. Quit")
+
+    choice = input("Choice: ")
+
+    if choice == "1":
+        show_todos()
+    elif choice == "2":
+        task = input("Enter task: ")
+        add_todo(task)
+    elif choice == "3":
+        show_todos()
+        num = int(input("Complete which?: "))
+        complete_todo(num)
+    elif choice == "4":
+        show_todos()
+        num_r = int(input("Remove which?: "))
+        remove_todo(num_r)
+    elif choice.lower == "5":
+        save_todos()
+        print("goodbye!")
+        break
