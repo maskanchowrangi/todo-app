@@ -2,7 +2,8 @@ import json
 todos = []
 
 def add_todo(item):
-    todos.append(item)
+    todo = {"task": item, "done": False}
+    todos.append(todos)
     print(f"Added: {item}")
 
 def show_todos():
@@ -44,8 +45,6 @@ def load_todos():
 # load existing todos
 
 load_todos()
-
-# test the function
 
 add_todo("Learn Git")
 add_todo("Build projects")
