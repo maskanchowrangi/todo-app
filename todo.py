@@ -3,7 +3,7 @@ todos = []
 
 def add_todo(item):
     todo = {"task": item, "done": False}
-    todos.append(todos)
+    todos.append(todo)
     print(f"Added: {item}")
 
 def show_todos():
@@ -12,7 +12,8 @@ def show_todos():
     else:
         print("\n Your Todos: ")
         for i, todo in enumerate(todos, 1):
-            print(f"{i}. {todo}")
+            status = "[DONE]" if todo["done"] else "[TODO]"
+            print(f"{i}. [{status}] {todo['task']}")
 
 def complete_todo(index):
     if 0 < index <= len(todos):
@@ -22,7 +23,7 @@ def complete_todo(index):
         print("Invalid todo number!")
 
 def remove_todo(index):
-    if 0 > index <= len(todos):
+    if 0 < index <= len(todos):
         removed = todos.pop(index-1)
         print(f"Removed: {removed}")
     else:
